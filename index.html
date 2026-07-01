@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHANTOM DETAILING | Премиальная защита и стайлинг автомобилей в Астане</title>
+    <style>
+        :root {
+            --bg: #050608;
+            --surface: #0b0d13;
+            --surface-card: #121520;
+            --accent: #ff0044;
+            --accent-glow: rgba(255, 0, 68, 0.25);
+            --text: #ffffff;
+            --text-muted: #6c7385;
+            --border: #1a1e29;
+            --radius: 6px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            background: rgba(5, 6, 8, 0.85);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-contacts {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .phone-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .phone-link span {
+            color: var(--text-muted);
+            font-weight: 400;
+            display: block;
+            font-size: 0.75rem;
+            text-align: right;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px var(--accent-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-muted);
+            box-shadow: none;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            padding: 120px 0 90px 0;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255, 0, 68, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            max-width: 580px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .marketing-triggers {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .trigger-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--accent);
+        }
+
+        .trigger-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .trigger-item p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        section {
+            padding: 90px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .pack-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .pack-card.popular {
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(255, 0, 68, 0.05);
+        }
+
+        .pack-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .pack-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .pack-price {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 24px;
+        }
+
+        .pack-price span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pack-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .pack-features li {
+            font-size: 0.92rem;
+            margin-bottom: 12px;
+            color: #d1d5db;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pack-features li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 900;
+        }
+
+        .slider-box {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .slider-ui {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .slider-side {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .side-after {
+            background: linear-gradient(135deg, #090a0f 0%, #1a1d29 100%);
+            box-shadow: inset 0 0 100px rgba(255, 0, 68, 0.15);
+        }
+
+        .side-before {
+            background: #151821;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 1px, transparent 1px),
+                linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.08) 50%, transparent 52%),
+                linear-gradient(-35deg, transparent 45%, rgba(255,255,255,0.05) 50%, transparent 55%);
+            background-size: 30px 30px, 120px 120px, 200px 200px;
+            width: 50%;
+            border-right: 3px solid var(--accent);
+            z-index: 2;
+        }
+
+        .slider-ui input[type="range"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: ew-resize;
+            z-index: 10;
+        }
+
+        .side-label {
+            position: absolute;
+            bottom: 20px;
+            background: rgba(5, 6, 8, 0.85);
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            z-index: 5;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .label-before { left: 20px; color: var(--text-muted); }
+        .label-after { right: 20px; color: var(--accent); }
+
+        .calc-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 32px;
+        }
+
+        .calc-options {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: var(--radius);
+        }
+
+        .calc-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .selector-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .selector-grid input[type="radio"], .list-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .radio-label {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 14px;
+            text-align: center;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 700;
+            display: block;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .selector-grid input[type="radio"]:checked + .radio-label {
+            border-color: var(--accent);
+            color: #fff;
+            background: rgba(255, 0, 68, 0.05);
+        }
+
+        .checkbox-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .check-label {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 18px 24px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .check-label .price-tag {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .list-item input[type="checkbox"]:checked + .check-label {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.02);
+            box-shadow: inset 4px 0 0 var(--accent);
+        }
+
+        .sticky-result {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: var(--radius);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sticky-result h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .price-output {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .lead-input {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 16px;
+            border-radius: var(--radius);
+            color: #fff;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .lead-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 32px;
+            border-radius: var(--radius);
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 992px) {
+            .hero, .calc-layout, .faq-grid { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .slider-ui { height: 320px; }
+            .selector-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-wrap">
+            <div class="logo">PHANTOM<span>.</span></div>
+            <div class="nav-contacts">
+                <a href="tel:+77777777777" class="phone-link">
+                    +7 (777) 777-77-77
+                    <span>г. Астана, ул. Кенесары</span>
+                </a>
+                <a href="#calc" class="btn">Конфигуратор</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <div class="hero-tag">STEK & SunTek Certified</div>
+                <h1>Защита ЛКП <span>без компромиссов</span></h1>
+                <p>Профессиональная оклейка антигравийными полиуретановыми пленками и восстановление лакокрасочного покрытия. Защитите автомобиль от суровых зимних реагентов Астаны и резких сколов на загородных трассах.</p>
+                <div class="hero-buttons">
+                    <a href="#calc" class="btn">Рассчитать стоимость</a>
+                    <a href="#packages" class="btn btn-outline">Готовые пакеты</a>
+                </div>
+            </div>
+            <div class="marketing-triggers">
+                <div class="trigger-item">
+                    <h4>Честная гарантия до 5 лет</h4>
+                    <p>Никаких пожелтений, отслоений и пузырей. Фиксируем гарантийные обязательства в официальном договоре.</p>
+                </div>
+                <div class="trigger-item">
+                    <h4>Лабораторная чистота</h4>
+                    <p>Оклейка производится в специализированном боксе с многоступенчатой фильтрацией воздуха и контролем влажности.</p>
+                </div>
+                <div class="trigger-item">
+                    <h4>Только Оригинал</h4>
+                    <p>Не работаем с дешевыми азиатскими гибридами. Только чистый полиуретан из США и Южной Кореи с топкоутом.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="packages">
+            <div class="section-header">
+                <h2 class="section-title">Комплексные <span>Решения</span></h2>
+                <p class="section-desc">Популярные пакеты услуг, сформированные под конкретные задачи автовладельцев.</p>
+            </div>
+            <div class="packages-grid">
+                <div class="pack-card">
+                    <div>
+                        <div class="pack-name">Зоны Риска</div>
+                        <div class="pack-price">350 000 ₸ <span>/ от 2 дней</span></div>
+                        <ul class="pack-features">
+                            <li>Капот и передний бампер полностью</li>
+                            <li>Передние крылья и оптика</li>
+                            <li>Зеркала и зоны под ручками</li>
+                            <li>Полиуретан толщиной 190 микрон</li>
+                        </ul>
+                    </div>
+                    <a href="#calc" class="btn btn-outline" style="width: 100%;">Выбрать пакет</a>
+                </div>
+
+                <div class="pack-card popular">
+                    <div class="pack-badge">Хит продаж</div>
+                    <div>
+                        <div class="pack-name">Полный Full Armor</div>
+                        <div class="pack-price">890 000 ₸ <span>/ от 4 дней</span></div>
+                        <ul class="pack-features">
+                            <li>Оклейка кузова полностью в круг</li>
+                            <li>Защита всех глянцевых стоек кузова</li>
+                            <li>Бронирование фар и лючка бензобака</li>
+                            <li>Гидрофобный самовосстанавливающийся топкоут</li>
+                        </ul>
+                    </div>
+                    <a href="#calc" class="btn" style="width: 100%;">Выбрать пакет</a>
+                </div>
+
+                <div class="pack-card">
+                    <div>
+                        <div class="pack-name">Идеальный Глянец</div>
+                        <div class="pack-price">190 000 ₸ <span>/ от 1 дня</span></div>
+                        <ul class="pack-features">
+                            <li>Восстановительная абразивная полировка</li>
+                            <li>Удаление до 95% мелких царапин и голограмм</li>
+                            <li>Нанесение 2 слоев керамики Керамика 9H</li>
+                            <li>Глубокий зеркальный блеск и гидрофоб</li>
+                        </ul>
+                    </div>
+                    <a href="#calc" class="btn btn-outline" style="width: 100%;">Выбрать пакет</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="visual">
+            <div class="section-header">
+                <h2 class="section-title">Интерактивная <span>демонстрация</span></h2>
+                <p class="section-desc">Потяните ползунок, чтобы увидеть разницу между затертым кузовом и лакокрасочным покрытием после глубокой восстановительной полировки кузова и нанесения керамического состава.</p>
+            </div>
+            <div class="slider-box">
+                <div class="slider-ui">
+                    <!-- Базовый слой — Идеальный глянец ПОСЛЕ -->
+                    <div class="slider-side side-after"></div>
+                    
+                    <!-- Перекрывающий слой — Затертый кузов ДО -->
+                    <div class="slider-side side-before" id="layer-divider"></div>
+                    
+                    <input type="range" min="0" max="100" value="50" id="drag-range">
+                    
+                    <div class="side-label label-before">ДО (ЦАРАПИНЫ И МАТОВОСТЬ)</div>
+                    <div class="side-label label-after">ПОСЛЕ (PHANTOM GLOSS)</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="calc">
+            <div class="section-header">
+                <h2 class="section-title">Интеллектуальный <span>калькулятор</span></h2>
+                <p class="section-desc">Выберите форм-фактор вашего автомобиля и отметьте необходимые опции для мгновенного расчета цены.</p>
+            </div>
+            <div class="calc-layout">
+                <div class="calc-options">
+                    <div class="calc-title">1. Тип и габариты кузова</div>
+                    <div class="selector-grid">
+                        <div>
+                            <input type="radio" name="size_type" value="1.0" id="size-1" checked>
+                            <label for="size-1" class="radio-label">Седан / Купе</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="size_type" value="1.2" id="size-2">
+                            <label for="size-2" class="radio-label">Кроссовер</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="size_type" value="1.4" id="size-3">
+                            <label for="size-3" class="radio-label">Внедорожник / SUV</label>
+                        </div>
+                    </div>
+
+                    <div class="calc-title">2. Список необходимых работ</div>
+                    <div class="checkbox-list">
+                        <div class="list-item">
+                            <input type="checkbox" class="service-item" value="350000" id="opt-1">
+                            <label for="opt-1" class="check-label">
+                                <span>Антигравийная защита «Зоны риска» (Полиуретан)</span>
+                                <span class="price-tag">350 000 ₸</span>
+                            </label>
+                        </div>
+                        <div class="list-item">
+                            <input type="checkbox" class="service-item" value="850000" id="opt-2" checked>
+                            <label for="opt-2" class="check-label">
+                                <span>Полная оклейка кузова в защитную бронепленку</span>
+                                <span class="price-tag">850 000 ₸</span>
+                            </label>
+                        </div>
+                        <div class="list-item">
+                            <input type="checkbox" class="service-item" value="120000" id="opt-3">
+                            <label for="opt-3" class="check-label">
+                                <span>Многоэтапная полировка + Нанокерамика кузова</span>
+                                <span class="price-tag">120 000 ₸</span>
+                            </label>
+                        </div>
+                        <div class="list-item">
+                            <input type="checkbox" class="service-item" value="70000" id="opt-4">
+                            <label for="opt-4" class="check-label">
+                                <span>Детейлинг-химчистка интерьера с разбором</span>
+                                <span class="price-tag">70 000 ₸</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sticky-result">
+                    <h4>Предварительный расчет стоимости</h4>
+                    <div class="price-output" id="total-sum">850 000 ₸</div>
+                    
+                    <form id="callback-form">
+                        <input type="text" placeholder="Ваше имя" class="lead-input" required>
+                        <input type="tel" placeholder="+7 (777) 777-77-77" class="lead-input" required>
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 8px;">Зафиксировать цену и скидку 10%</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="section-header">
+                <h2 class="section-title">Часто задаваемые <span>вопросы</span></h2>
+                <p class="section-desc">Отвечаем на популярные вопросы открыто, без маркетинговых уловок.</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Чем полиуретан отличается от гибридных или виниловых пленок?</h3>
+                    <p>Винил — это тонкий ПВХ, он защищает только от пескоструя и выгорания, а на морозе Астаны становится хрупким. Полиуретан — это прочный эластичный материал толщиной под 200 микрон, который пружинит при ударе гравия и защищает кузов даже от мелких ДТП и притирок.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Что такое функция самовосстановления (Top Coat)?</h3>
+                    <p>На поверхности премиальных пленок STEK и SunTek есть специальный лаковый слой. Если на нем появляются мелкие царапины от моек или веток, достаточно полить машину горячей водой или оставить на солнце — лак расширится, и царапины затянутся сами без полировки.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Можно ли мыть машину сразу после процедуры оклейки?</h3>
+                    <p>Мы рекомендуем воздержаться от водных процедур первые 7-10 дней. Пленка должна окончательно просохнуть, а клеевой состав — набрать максимальную адгезию с лаком кузова. При последующих мойках обязательно предупреждайте мастеров, чтобы не подносили пистолет высокого давления ближе 40 см к краям пленки.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Не повредит ли демонтаж пленки заводскую краску через несколько лет?</h3>
+                    <p>Если автомобиль покрашен на заводе или качественно отремонтирован по технологическим картам, качественный полиуретан снимается абсолютно безопасно без повреждения ЛКП. Мы используем профессиональные составы для размягчения клея при демонтаже, исключая любые риски.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2026 PHANTOM Detailing Studio. Все права защищены. Разработка и оптимизация кода: Cortex Dev.
+        </footer>
+    </div>
+
+    <script>
+        // Механика CSS слайдера До/После
+        const dragRange = document.getElementById('drag-range');
+        const layerDivider = document.getElementById('layer-divider');
+        const labelBefore = document.querySelector('.label-before');
+
+        dragRange.addEventListener('input', (e) => {
+            const currentVal = parseInt(e.target.value);
+            
+            // Двигаем границу слоя
+            layerDivider.style.width = `${currentVal}%`;
+            
+            // Если ползунок уходит влево и закрывает царапины (наезжает на текст), скрываем плашку
+            if (currentVal < 35) {
+                labelBefore.style.opacity = '0';
+                labelBefore.style.transform = 'translateY(10px)';
+                labelBefore.style.pointerEvents = 'none';
+            } else {
+                // Когда ползунок возвращается обратно — показываем её
+                labelBefore.style.opacity = '1';
+                labelBefore.style.transform = 'translateY(0)';
+                labelBefore.style.pointerEvents = 'auto';
+            }
+        });
+
+        // Логика математического пересчета калькулятора
+        const sizeRadios = document.querySelectorAll('input[name="size_type"]');
+        const serviceChecks = document.querySelectorAll('.service-item');
+        const totalSumDisplay = document.getElementById('total-sum');
+
+        function calculateCost() {
+            let baseSum = 0;
+            let ratio = 1.0;
+
+            sizeRadios.forEach(radio => {
+                if (radio.checked) ratio = parseFloat(radio.value);
+            });
+
+            serviceChecks.forEach(cb => {
+                if (cb.checked) baseSum += parseInt(cb.value);
+            });
+
+            const currentTotal = Math.round(baseSum * ratio);
+            totalSumDisplay.innerText = currentTotal.toLocaleString('ru-RU') + ' ₸';
+        }
+
+        sizeRadios.forEach(r => r.addEventListener('change', calculateCost));
+        serviceChecks.forEach(c => c.addEventListener('change', calculateCost));
+
+        // Отправка лид-формы
+        document.getElementById('callback-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Данные приняты! Менеджер студии зафиксировал за вашим номером телефона индивидуальную скидку 10% и свяжется с вами для подбора даты записи.');
+            this.reset();
+            calculateCost();
+        });
+    </script>
+</body>
+</html>
